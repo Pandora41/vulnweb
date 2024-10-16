@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.store {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.item img {
+    max-width: 100px;
+    height: auto;
+}
+
+.item div {
+    margin-top: 5px;
+}

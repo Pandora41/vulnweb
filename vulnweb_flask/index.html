@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web For Nerd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin-top: 100px;
+        }
+        .container {
+            display: inline-block;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #a08f73;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #8b7a5e;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Web For Nerd</div>
+        <button class="button" onclick="fetchFile('book.txt')">Read A Book</button>
+        <button class="button" onclick="fetchFile('article.txt')">Read Article</button>
+        <button class="button" onclick="fetchFile('document.txt')">Read Document</button>
+        <button class="button" onclick="fetchFile('letter.txt')">Read Letter</button>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function fetchFile(filename) {
+    fetch(`http://127.0.0.1:5000/readfile?filename=${filename}`)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('output').textContent = data;
+        })
+        .catch(error => {
+            document.getElementById('output').textContent = 'Error fetching file';
+        });
+}
+    </script>
+</body>
+</html>
